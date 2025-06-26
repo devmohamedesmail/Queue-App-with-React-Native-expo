@@ -109,6 +109,11 @@
     "remove_selected":"Remove Selected",
     "remove":"Remove",
     "items":"Items",
+    "queue-book-error":"Error in booking queue",
+    "open_now":"Open Now",
+    "directions": "Directions",
+    "details": "Details",
+    "place-details": "Place Details",
     "privacy": {
         "title": "Privacy Policy",
         "description": "Your privacy is important to us. This policy explains how we collect, use, and protect your information.",

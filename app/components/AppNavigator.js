@@ -13,6 +13,7 @@ import Inbox from '../screens/Inbox/inbox';
 import { Test } from '../screens/Test/Test';
 import Notifications from '../screens/notifications/notifications';
 import Privacy from '../screens/privacy/privacy';
+import Place_Details from '../screens/place_details/place_details';
 
 
 
@@ -47,6 +48,7 @@ export default function AppNavigator() {
             <Stack.Screen name='Notifications' component={Notifications}  />
             <Stack.Screen name='Test' component={Test}  />
             <Stack.Screen name='Privacy' component={Privacy}  />
+            <Stack.Screen name='PlaceDetails' component={Place_Details}  />
             
         </Stack.Navigator>
     )

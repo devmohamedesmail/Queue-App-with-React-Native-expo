@@ -2,18 +2,17 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useTheme } from '../../context/ThemeContext'
 import { useTranslation } from 'react-i18next';
-
 import { Modal, Div, Text, ScrollDiv } from 'react-native-magnus';
 import colors from '../../config/colors';
-import { ScrollView } from 'react-native';
 import HistoryItem from '../../screens/historylog/historyitem';
 import axios from 'axios';
 import { InfoContext } from '../../context/InfoContext';
 import { AuthContext } from '../../context/AuthContext';
 import ModalCloseBtn from '../../components/ModalCloseBtn';
 import { api } from '../../config/api';
+import { Feather } from '@expo/vector-icons';
 
-const HistoryComponent = ({ historyModalVisible, setHistoryModalVisible }) => {
+const History_Modal = ({ historyModalVisible, setHistoryModalVisible }) => {
     const { theme } = useTheme();
     const { t, i18n } = useTranslation();
     const [history, setHistory] = useState([]);
@@ -39,25 +38,48 @@ const HistoryComponent = ({ historyModalVisible, setHistoryModalVisible }) => {
 
 
     return (
-        <Modal isVisible={historyModalVisible} bg={theme === 'light' ? colors.lightTheme.background : colors.darkTheme.background}>
+        <Modal
+            p={10}
+            isVisible={historyModalVisible} bg={theme === 'light' ? colors.lightTheme.background : colors.darkTheme.background}>
 
             <ModalCloseBtn onPress={() => setHistoryModalVisible(false)} />
             <Div h="100%" position='relative'>
 
-                <Div mt={80}>
+
+
+
+
+                <Div
+                    h={40}
+                    row
+                    justifyContent="flex-start"
+                    alignItems="center"
+                    mr={12}
+                    px={10}
+                >
+                    <Feather
+                        name="clock"
+                        size={22}
+                        color={theme === 'light' ? colors.lightTheme.primary : colors.darkTheme.primary}
+                    />
                     <Text
-                        color={theme === 'light' ? colors.lightTheme.black : colors.darkTheme.primary}
-                        fontWeight='bold'
-                        fontSize={20}
-                        textAlign='center'
-                        mb={10}
+                        fontSize={18}
+                        ml={10}
+                        fontWeight="bold"
+                        color={theme === 'light' ? colors.lightTheme.black : colors.darkTheme.white}
                         fontFamily={i18n.language === 'en' ? 'poppins-regular' : 'cairo'}
-                    >{t('history')}
+                    >
+                        {t('history')}
                     </Text>
+                </Div>
+
+
+                <Div mt={80}>
 
 
 
-                    <ScrollDiv pb={100}  mb={60}>
+
+                    <ScrollDiv pb={100} mb={60}>
                         {history.length > 0 ? (
                             history.map((item) => (
                                 <HistoryItem
@@ -86,4 +108,4 @@ const HistoryComponent = ({ historyModalVisible, setHistoryModalVisible }) => {
     )
 }
 
-export default HistoryComponent
+export default History_Modal

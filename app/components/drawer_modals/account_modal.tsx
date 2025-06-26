@@ -24,7 +24,7 @@ const AccountComponent = ({ accountModalVisible, setAccountModalVisible, drawerR
     const { theme } = useTheme();
     const { t, i18n } = useTranslation();
     const { auth, setAuth, login, register, logout } = useContext(AuthContext);
-    const navigation = useNavigation();
+    const navigation = useNavigation<any>();
     const [loadingDelete, setLoadingDelete] = useState(false);
 
 
@@ -105,7 +105,9 @@ const AccountComponent = ({ accountModalVisible, setAccountModalVisible, drawerR
             <Modal
                 onBackdropPress={() => setAccountModalVisible(false)}
                 h="100%"
-                w="100%"
+
+                p={10}
+
                 isVisible={accountModalVisible}
                 bg={theme === 'light' ? colors.lightTheme.background : colors.darkTheme.background}
             >
@@ -113,21 +115,40 @@ const AccountComponent = ({ accountModalVisible, setAccountModalVisible, drawerR
                 <ModalCloseBtn onPress={() => setAccountModalVisible(false)} />
                 <Div h="100%" position='relative'>
 
-                    <Div mt={100}>
+
+
+                    <Div
+                        h={40}
+                        row
+                        justifyContent="flex-start"
+                        alignItems="center"
+                        mr={12}
+                        px={10}
+                    >
+                        <Feather
+                            name="user"
+                            size={22}
+                            color={theme === 'light' ? colors.lightTheme.primary : colors.darkTheme.primary}
+                        />
                         <Text
-                            color={theme === 'light' ? colors.lightTheme.black : colors.darkTheme.primary}
-                            fontWeight='bold'
-                            fontSize={20}
-                            textAlign='center'
-                            mb={20}
-                            fontFamily={i18n.language === 'en' ? 'poppins-regular' : 'cairo'}>
-
+                            fontSize={18}
+                            ml={10}
+                            fontWeight="bold"
+                            color={theme === 'light' ? colors.lightTheme.black : colors.darkTheme.white}
+                            fontFamily={i18n.language === 'en' ? 'poppins-regular' : 'cairo'}
+                        >
                             {t('account')}
-
                         </Text>
+                    </Div>
 
 
 
+
+
+
+
+
+                    <Div mt={30}>
 
 
                         <CustomAccountButton
@@ -213,7 +234,7 @@ const AccountComponent = ({ accountModalVisible, setAccountModalVisible, drawerR
                             title={t('privacy-policy')}
                             onPress={() => {
                                 setAccountModalVisible(false)
-                               
+
                                 drawerRef.current.close()
                                 setTimeout(() => {
                                     navigation.navigate('Privacy')
@@ -233,19 +254,51 @@ const AccountComponent = ({ accountModalVisible, setAccountModalVisible, drawerR
                         {auth && auth.user ? (
                             <>
                                 <Div mb={10}>
-                                    <CustomButton
+                                    <Button
+                                        block
+                                        h={50}
+                                        bg={theme === 'light' ? colors.lightTheme.primary : colors.darkTheme.primary}
+                                        color={theme === 'light' ? colors.lightTheme.white : colors.darkTheme.white}
+                                        rounded={14}
+                                        shadow="md"
+                                        prefix={
+                                            <Feather
+                                                name="log-out"
+                                                size={20}
+                                                color={theme === 'light' ? colors.lightTheme.white : colors.darkTheme.white}
+                                                style={{ marginRight: 8 }}
+                                            />
+                                        }
                                         onPress={() => logout()}
-                                        title={t('logout')} w="100%" bg={theme === 'light' ? colors.lightTheme.primary : colors.darkTheme.primary} />
+                                    >
+                                        {t('logout')}
+                                    </Button>
+
                                 </Div>
 
                                 <Div mb={20}>
                                     {loadingDelete ?
                                         <CustomActivityIndicator />
                                         :
-                                        <CustomButton
-                                            title={t('delete-account')}
-                                            w="100%" bg="red600"
-                                            onPress={handleDeleteAccount} />
+                                        <Button
+                                            block
+                                            h={50}
+                                            bg="red600"
+                                            color={theme === 'light' ? colors.lightTheme.white : colors.darkTheme.white}
+                                            rounded={14}
+                                            shadow="md"
+                                            prefix={
+                                                <Feather
+                                                    name="trash-2"
+                                                    size={20}
+                                                    color={theme === 'light' ? colors.lightTheme.white : colors.darkTheme.white}
+                                                    style={{ marginRight: 8 }}
+                                                />
+                                            }
+                                            onPress={handleDeleteAccount}
+                                        >
+                                            {t('delete-account')}
+                                        </Button>
 
                                     }
 
@@ -255,9 +308,25 @@ const AccountComponent = ({ accountModalVisible, setAccountModalVisible, drawerR
 
                         ) : (
                             <Div mb={10}>
-                                <CustomButton
+                                <Button
+                                    block
+                                    h={50}
+                                    bg={theme === 'light' ? colors.lightTheme.primary : colors.darkTheme.primary}
+                                    color={theme === 'light' ? colors.lightTheme.white : colors.darkTheme.white}
+                                    rounded={14}
+                                    shadow="md"
+                                    prefix={
+                                        <Feather
+                                            name="log-in"
+                                            size={20}
+                                            color={theme === 'light' ? colors.lightTheme.white : colors.darkTheme.white}
+                                            style={{ marginRight: 8 }}
+                                        />
+                                    }
                                     onPress={() => navigation.navigate('Login')}
-                                    title={t('login')} w="100%" bg={theme === 'light' ? colors.lightTheme.primary : colors.darkTheme.primary} />
+                                >
+                                    {t('login')}
+                                </Button>
                             </Div>
                         )}
 

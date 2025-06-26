@@ -2,9 +2,6 @@ import React from 'react'
 import { SafeAreaView } from 'react-native'
 import { Div, Text } from 'react-native-magnus'
 
-
-
-import DrawerComponent from '../../components/DrawerComponent'
 import colors from '../../config/colors'
 import CustomAccountButton from '../../custom/CustomAccountButton'
 import FontAwesome from '@expo/vector-icons/FontAwesome';

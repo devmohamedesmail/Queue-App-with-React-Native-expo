@@ -11,10 +11,10 @@ import { Div, Button, Text } from 'react-native-magnus';
 import CustomDrawerBoxIcon from './CustomDrawerBoxIcon';
 import CustomDrawerItem from './CustomDrawerItem';
 import CustomButton from './CustomButton';
-import AccountComponent from '../components/drawer_modals/AccountComponent';
+import AccountComponent from '../components/drawer_modals/account_modal';
 import FavouriteComponent from '../components/drawer_modals/favourite_modal';
 import HistoryComponent from '../components/drawer_modals/HistoryComponent';
-import MyQueueComponent from '../components/drawer_modals/MyQueueComponent';
+import MyQueueComponent from '../components/drawer_modals/queues_modal';
 import SettingComponent from '../components/drawer_modals/SettingComponent';
 import NotificationComponent from '../components/drawer_modals/notifications_modal';
 

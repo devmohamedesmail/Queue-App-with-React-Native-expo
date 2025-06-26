@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Div,Overlay} from 'react-native-magnus'
-import DrawerComponent from '../../components/DrawerComponent';
 import { api } from '../../config/api';
 import { ActivityIndicator } from 'react-native'
 import CustomText from '../../custom/CustomText';
@@ -58,7 +57,8 @@ export default function Home() {
           <Div mt={30} flexDir='row' justifyContent='space-between' alignItems='center' position='absolute' top={30} zIndex={1000} px={20} w="100%">
             {/* <SearchComponent places={places} /> */}
             <Search_Component places={places}  />
-            <DrawerComponent />
+            
+            <Drawer_Home_Component />
           </Div>
         
           <Map_Home places={places} />

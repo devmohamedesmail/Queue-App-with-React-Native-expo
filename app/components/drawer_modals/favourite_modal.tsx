@@ -66,6 +66,7 @@ const Favourite_Modal = ({ favouriteModalVisible, setFavouriteModalVisible }) =>
 
     return (
         <Modal
+             p={10}
             isVisible={favouriteModalVisible}
             bg={theme === 'light' ? colors.lightTheme.background : colors.darkTheme.background}
         >

@@ -83,7 +83,7 @@ export default function Place_Item_Map({ place }: PlaceItemMapProps) {
         p={16}
         w="95%"
         alignSelf="center"
-        shadow="sm"
+        shadow={30}
         shadowColor={shadowColor}
       >
         <Div flexDir='row' alignItems='center'>

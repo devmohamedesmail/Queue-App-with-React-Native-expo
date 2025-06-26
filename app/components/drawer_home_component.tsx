@@ -1,9 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Drawer, Button, Div, Text, ScrollDiv, Modal, Icon } from 'react-native-magnus'
 import Octicons from '@expo/vector-icons/Octicons';
-import CustomDrawerBoxIcon from '../custom/CustomDrawerBoxIcon';
 import AntDesign from '@expo/vector-icons/AntDesign';
-import CustomDrawerItem from '../custom/CustomDrawerItem';
 import colors from '../config/colors';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import Entypo from '@expo/vector-icons/Entypo';
@@ -16,10 +14,10 @@ import { useTheme } from '../context/ThemeContext';
 
 import CustomButton from '../custom/CustomButton';
 
-import AccountComponent from './drawer_modals/AccountComponent';
+import AccountComponent from './drawer_modals/account_modal';
 import FavouriteComponent from './drawer_modals/favourite_modal';
-import HistoryComponent from './drawer_modals/HistoryComponent';
-import MyQueueComponent from './drawer_modals/MyQueueComponent';
+import History_Modal from './drawer_modals/history_modal';
+import MyQueueComponent from './drawer_modals/queues_modal';
 import SettingComponent from './drawer_modals/SettingComponent';
 import Notification_Modal from './drawer_modals/notifications_modal';
 import { AuthContext } from '../context/AuthContext';
@@ -238,20 +236,7 @@ export default function Drawer_Home_Component() {
 
 
                         </Div>
-                        {/* ************************************** Items section End ************************************** */}
-
-
-
-
-                        {/* ************************************** How To use section Start ************************************** */}
-                        {/* <Div px={10} position='absolute' bottom={50} right={0} left={0}>
-                                    <CustomButton bg={theme === 'light' ? colors.lightTheme.primary : colors.darkTheme.primary} title={t('how-to-use')} w="98%" />
-                                </Div> */}
-                        {/* ************************************** How To use section End ************************************** */}
-
-
-
-
+                        
                     </Div>
                 </ScrollDiv>
 
@@ -262,7 +247,7 @@ export default function Drawer_Home_Component() {
                     drawerRef={drawerRef}
                     accountModalVisible={accountModalVisible} setAccountModalVisible={setAccountModalVisible} />
                 <FavouriteComponent favouriteModalVisible={favouriteModalVisible} setFavouriteModalVisible={setFavouriteModalVisible} />
-                <HistoryComponent historyModalVisible={historyModalVisible} setHistoryModalVisible={setHistoryModalVisible} />
+                <History_Modal historyModalVisible={historyModalVisible} setHistoryModalVisible={setHistoryModalVisible} />
                 <MyQueueComponent queueModalVisible={queueModalVisible} setQueueModalVisible={setQueueModalVisible} />
                 <SettingComponent settingModalVisible={settingModalVisible} setSettingModalVisible={setSettingModalVisible} />
                 <Notification_Modal notificationsModalVisible={notificationsModalVisible} setNotificationsModalVisible={setNotificationsModalVisible} />
