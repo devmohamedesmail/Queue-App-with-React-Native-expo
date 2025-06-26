@@ -15,7 +15,6 @@ import CustomAccountButton from '../../custom/CustomAccountButton';
 import { Alert } from 'react-native';
 import { api } from '../../config/api';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Toast } from 'toastify-react-native'
 
 import axios from 'axios';
 import CustomActivityIndicator from '../../custom/CustomActivityIndicator';
@@ -58,24 +57,22 @@ const AccountComponent = ({ accountModalVisible, setAccountModalVisible, drawerR
 
                                 setAuth(null);
                                 await AsyncStorage.removeItem('user');
-                                
+
                                 Alert.alert(
                                     t('delete-success'),
                                     '', // You can add a message here if needed
                                     [
                                         {
                                             text: 'OK',
-                                            onPress: () => 
-                                                
-                                                {
-                                                    setAccountModalVisible(false);
-                                                    drawerRef?.current?.close();
-                                                    setTimeout(() => {
-                                                        navigation.navigate('Home')
-                                                    },1000)
-                                                    
-                                                }
-                                                
+                                            onPress: () => {
+                                                setAccountModalVisible(false);
+                                                drawerRef?.current?.close();
+                                                setTimeout(() => {
+                                                    navigation.navigate('Home')
+                                                }, 1000)
+
+                                            }
+
                                         },
                                     ]
                                 );
@@ -207,6 +204,21 @@ const AccountComponent = ({ accountModalVisible, setAccountModalVisible, drawerR
                                 } else {
                                     navigation.navigate('Login')
                                 }
+                            }}
+
+                        />
+
+                        <CustomAccountButton
+                            icon={<MaterialIcons name="privacy-tip" size={24} color={theme === 'light' ? colors.lightTheme.primary : colors.darkTheme.primary} />}
+                            title={t('privacy-policy')}
+                            onPress={() => {
+                                setAccountModalVisible(false)
+                               
+                                drawerRef.current.close()
+                                setTimeout(() => {
+                                    navigation.navigate('Privacy')
+                                }, 1000)
+
                             }}
 
                         />

@@ -12,11 +12,11 @@ import CustomDrawerBoxIcon from './CustomDrawerBoxIcon';
 import CustomDrawerItem from './CustomDrawerItem';
 import CustomButton from './CustomButton';
 import AccountComponent from '../components/drawer_modals/AccountComponent';
-import FavouriteComponent from '../components/drawer_modals/FavouriteComponent';
+import FavouriteComponent from '../components/drawer_modals/favourite_modal';
 import HistoryComponent from '../components/drawer_modals/HistoryComponent';
 import MyQueueComponent from '../components/drawer_modals/MyQueueComponent';
 import SettingComponent from '../components/drawer_modals/SettingComponent';
-import NotificationComponent from '../components/drawer_modals/NotificationComponent';
+import NotificationComponent from '../components/drawer_modals/notifications_modal';
 
 export default function CustomDrawerContent(props) {
     const { t, i18n } = useTranslation();

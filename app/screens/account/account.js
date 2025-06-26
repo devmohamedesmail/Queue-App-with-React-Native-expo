@@ -11,7 +11,7 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import Feather from '@expo/vector-icons/Feather';
-import NotificationComponent from '../../components/drawer_modals/NotificationComponent'
+import NotificationComponent from '../../components/drawer_modals/notifications_modal'
 
 
 
@@ -43,6 +43,7 @@ export default function Account() {
           <CustomAccountButton icon={<AntDesign name="hearto" size={24} color="black" />} title="My Favourite" />
           <CustomAccountButton icon={<AntDesign name="videocamera" size={24} color="black" />} title="How to use" />
           <CustomAccountButton icon={<Feather name="help-circle" size={24} color="black" />} title="Need Help" />
+          <CustomAccountButton icon={<Feather name="help-circle" size={24} color="black" />} title="Privacy Policy" />
         </Div>
 
 

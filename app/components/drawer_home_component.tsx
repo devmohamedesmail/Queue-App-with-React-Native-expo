@@ -17,17 +17,18 @@ import { useTheme } from '../context/ThemeContext';
 import CustomButton from '../custom/CustomButton';
 
 import AccountComponent from './drawer_modals/AccountComponent';
-import FavouriteComponent from './drawer_modals/FavouriteComponent';
+import FavouriteComponent from './drawer_modals/favourite_modal';
 import HistoryComponent from './drawer_modals/HistoryComponent';
 import MyQueueComponent from './drawer_modals/MyQueueComponent';
 import SettingComponent from './drawer_modals/SettingComponent';
-import NotificationComponent from './drawer_modals/NotificationComponent';
+import Notification_Modal from './drawer_modals/notifications_modal';
 import { AuthContext } from '../context/AuthContext';
 import { Dimensions, Platform } from 'react-native';
 import Custom_Icon_Btn from '../custom/custom_icon_btn';
 import Drawer_Item_Box from '../custom/drawer_item_box';
 import Notification_Btn from './notification_btn';
 import Drawer_Item_Button from '../custom/drawer_item_button';
+
 
 
 
@@ -43,6 +44,7 @@ export default function Drawer_Home_Component() {
     const [queueModalVisible, setQueueModalVisible] = useState(false)
     const [settingModalVisible, setSettingModalVisible] = useState(false)
     const [notificationsModalVisible, setNotificationsModalVisible] = useState(false)
+    const [notifications_modal_visible, set_notifications_modal_visible] = useState(false)
     const { theme } = useTheme()
     const { auth } = useContext(AuthContext)
 
@@ -167,7 +169,11 @@ export default function Drawer_Home_Component() {
 
 
                         <Div mt={30}>
-                            <Notification_Btn onPress={() => navigation.navigate("Notifications")} />
+                            {/* <Notification_Btn onPress={() => navigation.navigate("Notifications")} /> */}
+                            <Notification_Btn onPress={() => {
+                                setNotificationsModalVisible(true);
+                            }
+                            } />
                         </Div>
 
 
@@ -259,7 +265,11 @@ export default function Drawer_Home_Component() {
                 <HistoryComponent historyModalVisible={historyModalVisible} setHistoryModalVisible={setHistoryModalVisible} />
                 <MyQueueComponent queueModalVisible={queueModalVisible} setQueueModalVisible={setQueueModalVisible} />
                 <SettingComponent settingModalVisible={settingModalVisible} setSettingModalVisible={setSettingModalVisible} />
-                <NotificationComponent notificationsModalVisible={notificationsModalVisible} setNotificationsModalVisible={setNotificationsModalVisible} />
+                <Notification_Modal notificationsModalVisible={notificationsModalVisible} setNotificationsModalVisible={setNotificationsModalVisible} />
+
+
+
+            
 
             </Drawer>
         </>

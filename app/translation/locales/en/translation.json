@@ -99,11 +99,44 @@
     "delete-error-message":"Please Try Again Later",
     "delete-success":"Account Deleted Successfully",
     "register-error-message":"Please check your details and try again",
-    "register-success-message":"Registration successful, welcome to our app!"
- 
-
-
-
-   
-    
+    "register-success-message":"Registration successful, welcome to our app!",
+    "privacy-policy": "Privacy Policy",
+    "email-us": "Email Us",
+    "no_favourites": "No Favourites",
+    "start_adding_favourites": "Start adding favourites to see them here",
+    "remove_favourite":"Remove From Favourite",
+    "are_you_sure_remove":"Are you sure to remove ? ",
+    "remove_selected":"Remove Selected",
+    "remove":"Remove",
+    "items":"Items",
+    "privacy": {
+        "title": "Privacy Policy",
+        "description": "Your privacy is important to us. This policy explains how we collect, use, and protect your information.",
+        "lastUpdated": "Last updated: {{date}}",
+        "footer": "This privacy policy is effective as of the date listed above and may be updated from time to time. We will notify you of any material changes.",
+        "collection": {
+            "title": "Information We Collect",
+            "content": "We collect information you provide directly to us, such as when you create an account, use our services, or contact us for support. This may include your name, email address, and usage data to improve your experience."
+        },
+        "usage": {
+            "title": "How We Use Your Information",
+            "content": "We use the information we collect to provide, maintain, and improve our services, communicate with you, and ensure the security of our platform. We never sell your personal information to third parties."
+        },
+        "sharing": {
+            "title": "Information Sharing",
+            "content": "We only share your information in limited circumstances: with your consent, to comply with legal obligations, or with trusted service providers who help us operate our services under strict confidentiality agreements."
+        },
+        "security": {
+            "title": "Data Security",
+            "content": "We implement industry-standard security measures to protect your personal information, including encryption, secure servers, and regular security audits. However, no method of transmission over the internet is 100% secure."
+        },
+        "retention": {
+            "title": "Data Retention",
+            "content": "We retain your personal information for as long as necessary to provide our services and fulfill the purposes outlined in this policy, unless a longer retention period is required by law."
+        },
+        "rights": {
+            "title": "Your Rights",
+            "content": "You have the right to access, update, or delete your personal information. You can also opt out of certain communications and request a copy of your data. Contact us to exercise these rights."
+        }
+    }
 }

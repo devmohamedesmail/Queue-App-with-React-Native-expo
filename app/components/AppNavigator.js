@@ -12,6 +12,7 @@ import Help from '../screens/help/help';
 import Inbox from '../screens/Inbox/inbox';
 import { Test } from '../screens/Test/Test';
 import Notifications from '../screens/notifications/notifications';
+import Privacy from '../screens/privacy/privacy';
 
 
 
@@ -45,6 +46,7 @@ export default function AppNavigator() {
             <Stack.Screen name='Inbox' component={Inbox}  />
             <Stack.Screen name='Notifications' component={Notifications}  />
             <Stack.Screen name='Test' component={Test}  />
+            <Stack.Screen name='Privacy' component={Privacy}  />
             
         </Stack.Navigator>
     )

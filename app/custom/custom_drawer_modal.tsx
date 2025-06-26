@@ -11,7 +11,7 @@ export interface CustomDrawerModalProps {
   style?: any
 }
 
-export default function CustomDrawerModal({
+export default function Custom_Drawer_Modal({
   visible = false,
   onClose,
   children,

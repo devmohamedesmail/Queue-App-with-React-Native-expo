@@ -17,11 +17,11 @@ import { useTheme } from '../context/ThemeContext';
 
 
 import AccountComponent from './drawer_modals/AccountComponent';
-import FavouriteComponent from './drawer_modals/FavouriteComponent';
+import FavouriteComponent from './drawer_modals/favourite_modal';
 import HistoryComponent from './drawer_modals/HistoryComponent';
 import MyQueueComponent from './drawer_modals/MyQueueComponent';
 import SettingComponent from './drawer_modals/SettingComponent';
-import NotificationComponent from './drawer_modals/NotificationComponent';
+import NotificationComponent from './drawer_modals/notifications_modal';
 import { AuthContext } from '../context/AuthContext';
 import { Dimensions, Platform } from 'react-native';
 
