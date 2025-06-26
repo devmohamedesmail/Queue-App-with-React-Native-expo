@@ -1,0 +1,55 @@
+{
+  "expo": {
+    "name": "Q me",
+    "slug": "myq",
+    "version": "1.0.19",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mohamedesmail9225.myq",
+      "buildNumber": "1.0.19",
+      "config": {
+        "googleMapsApiKey": "AIzaSyA74gOioKDIY9AlPHe3eyu4yTSvyAN8RMM"
+      },
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "We use your location to display service providers and queue points near you on the map so you can easily book or navigate to them.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Your location is used to send you real-time updates and reminders about your queue even if the app is running in the background.",
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.mohamedesmail9225.myq",
+      "versionCode": 19,
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyA74gOioKDIY9AlPHe3eyu4yTSvyAN8RMM"
+        }
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-font",
+      "expo-maps"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "089dbb75-bba0-4aec-9334-af18f948e64d"
+      }
+    }
+  }
+}
