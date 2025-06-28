@@ -10,7 +10,7 @@ import colors from '../../config/colors';
 import { useTheme } from '../../context/ThemeContext';
 import CustomButton from '../../custom/CustomButton';
 import { AuthContext } from '../../context/AuthContext';
-import ModalCloseBtn from '../ModalCloseBtn';
+import ModalCloseBtn from '../model_close_btn';
 import CustomAccountButton from '../../custom/CustomAccountButton';
 import { Alert } from 'react-native';
 import { api } from '../../config/api';
@@ -112,9 +112,9 @@ const AccountComponent = ({ accountModalVisible, setAccountModalVisible, drawerR
                 bg={theme === 'light' ? colors.lightTheme.background : colors.darkTheme.background}
             >
 
-                <ModalCloseBtn onPress={() => setAccountModalVisible(false)} />
-                <Div h="100%" position='relative'>
 
+                <Div h="100%" position='relative'>
+                    <ModalCloseBtn onPress={() => setAccountModalVisible(false)} />
 
 
                     <Div
@@ -323,7 +323,14 @@ const AccountComponent = ({ accountModalVisible, setAccountModalVisible, drawerR
                                             style={{ marginRight: 8 }}
                                         />
                                     }
-                                    onPress={() => navigation.navigate('Login')}
+                                    onPress={() => {
+                                        setAccountModalVisible(false)
+                                        drawerRef.current.close()
+                                        setTimeout(() => {
+                                            navigation.navigate('Login')
+                                        }, 1000)
+                                        
+                                    }}
                                 >
                                     {t('login')}
                                 </Button>

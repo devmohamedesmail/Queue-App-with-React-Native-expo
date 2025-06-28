@@ -6,9 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { SwipeListView } from 'react-native-swipe-list-view';
 import { remove_From_wishlist } from '../../redux/reducers/wishlistSlice';
 import { useTheme } from '../../context/ThemeContext';
-import ModalCloseBtn from '../ModalCloseBtn';
+import ModalCloseBtn from '../model_close_btn';
 import { View, StyleSheet, TouchableOpacity, Alert, Animated } from 'react-native';
-import { getLimitedWords } from '../../utils/getLimitedWords';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import Favourite_Empty from '../favourite_empty';
@@ -70,11 +69,12 @@ const Favourite_Modal = ({ favouriteModalVisible, setFavouriteModalVisible }) =>
             isVisible={favouriteModalVisible}
             bg={theme === 'light' ? colors.lightTheme.background : colors.darkTheme.background}
         >
-            <ModalCloseBtn onPress={() => setFavouriteModalVisible(false)} />
+           
 
-            <Div h="100%" pt={60} pb={20}>
+            <Div h="100%" >
+                 <ModalCloseBtn onPress={() => setFavouriteModalVisible(false)} />
                 {/* Header */}
-                <Div px={20} mb={20}>
+                <Div px={20} mt={10} mb={20}>
                     <Div row alignItems="center" justifyContent="space-between" mb={16}>
                         <Div row alignItems="center">
                             <Div

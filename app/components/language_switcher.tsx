@@ -9,7 +9,7 @@ const LanguageSwitcher = () => {
     const newLang = i18n.language === 'en' ? 'ar' : 'en';
     i18n.changeLanguage(newLang)
       .then(() => {
-        I18nManager.forceRTL(newLang === 'ar');
+        // I18nManager.forceRTL(newLang === 'ar');
 
       })
       .catch(err => console.error('Failed to change language', err));

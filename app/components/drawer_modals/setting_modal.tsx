@@ -3,7 +3,8 @@ import { Text, Div, Toggle, Modal } from 'react-native-magnus'
 import { useTheme } from '../../context/ThemeContext'
 import { useTranslation } from 'react-i18next'
 import colors from '../../config/colors'
-import ModalCloseBtn from '../ModalCloseBtn'
+import ModalCloseBtn from '../model_close_btn'
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 const SettingComponent = ({ settingModalVisible, setSettingModalVisible }) => {
     const { theme, toggleTheme } = useTheme();
@@ -29,18 +30,64 @@ const SettingComponent = ({ settingModalVisible, setSettingModalVisible }) => {
             backdropOpacity={0.5}
             p="xl"
         >
-            <ModalCloseBtn onPress={() => setSettingModalVisible(false)} />
-            <Div h="100%" w="100%" position="absolute" top={0} left={0} zIndex={999} pointerEvents="box-none">
-                <Div mt={80}>
+            
+            <Div h="100%" w="100%" >
+                <ModalCloseBtn onPress={() => setSettingModalVisible(false)} />
+
+
+
+
+  <Div
+                    h={56}
+                    row
+                    alignItems="center"
+                    bg={theme === 'light' ? colors.lightTheme.white : colors.darkTheme.surface}
+                    rounded={16}
+                    shadow="md"
+                    shadowColor={theme === 'light' ? '#00000010' : '#00000030'}
+                    mx={8}
+                    mt={8}
+                    px={18}
+                >
+                    <Div
+                        bg={theme === 'light' ? colors.lightTheme.primary : colors.darkTheme.primary}
+                        h={36}
+                        w={36}
+                        rounded="circle"
+                        alignItems="center"
+                        justifyContent="center"
+                        shadow="sm"
+                        shadowColor={theme === 'light' ? '#00000010' : '#00000030'}
+                    >
+                       
+                        <AntDesign name="setting" size={24} color={theme === 'light' ? colors.lightTheme.white : colors.darkTheme.background} />
+                    </Div>
                     <Text
-                        color={theme === 'light' ? colors.lightTheme.black : colors.darkTheme.primary}
-                        fontWeight='bold'
                         fontSize={20}
-                        textAlign='center'
-                        mb={20}
-                        fontFamily={i18n.language === 'en' ? 'poppins-regular' : 'cairo'}
-                    >{t('setting')}
+                        ml={14}
+                        fontWeight="bold"
+                        color={theme === 'light' ? colors.lightTheme.primary : colors.darkTheme.primary}
+                        fontFamily={i18n.language === 'en' ? 'poppins-bold' : 'cairo'}
+                        letterSpacing={0.5}
+                    >
+                        {t('settings')}
                     </Text>
+                </Div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <Div mt={80}>
+                  
                     <Div px={10}>
                         {/* Theme Switch */}
                         <Div

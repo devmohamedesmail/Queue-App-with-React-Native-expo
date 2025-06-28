@@ -143,5 +143,8 @@
             "title": "Your Rights",
             "content": "You have the right to access, update, or delete your personal information. You can also opt out of certain communications and request a copy of your data. Contact us to exercise these rights."
         }
-    }
+    },
+    "edit-info": "Edit Information",
+    "select_multiple": "Select Multiple",
+    "noQueuesDesc": "You have no queues, please book a queue to see it here"
 }

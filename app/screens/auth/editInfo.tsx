@@ -1,24 +1,26 @@
-import { SafeAreaView } from 'react-native'
+
 import React, { useContext, useState } from 'react'
 import { Div, Text } from 'react-native-magnus'
 import { useTheme } from '../../context/ThemeContext'
 import colors from '../../config/colors'
-import CustomInput from '../../custom/CustomInput'
 import { AuthContext } from '../../context/AuthContext'
-import CustomButton from '../../custom/CustomButton'
 import { useTranslation } from 'react-i18next'
 import { InfoContext } from '../../context/InfoContext'
 import { Toast } from 'toastify-react-native'
-import CustomActivityIndicator from '../../custom/CustomActivityIndicator'
 import axios from 'axios'
-import CloseBtn from '../../components/CloseBtn'
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import Creative_Header from '../../components/creative_header'
+import Custom_Input from '../../custom/custom_input'
+import AntDesign from '@expo/vector-icons/AntDesign';
+import Fontisto from '@expo/vector-icons/Fontisto';
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import Custom_Button from '../../custom/custom_button'
+import { api } from '../../config/api'
+import LoaderSpinner from '../../components/loader_spinner'
 const EditInfo = () => {
   const { theme } = useTheme()
-  const { auth, setAuth, login, register, logout } = useContext(AuthContext)
+  const { auth, setAuth } = useContext(AuthContext)
   const { t } = useTranslation()
-  const { info } = useContext(InfoContext)
   const [name, setName] = useState(auth?.user?.user?.name || '');
   const [email, setEmail] = useState(auth?.user?.user?.email || '');
   const [phone, setPhone] = useState(auth?.user?.user?.phone || '');
@@ -33,14 +35,14 @@ const EditInfo = () => {
     try {
 
       setLoading(true);
-      const response = await axios.post(`${info.appUrl}/api/v1/auth/edit/user/${auth.user.user._id}`, {
+      const response = await axios.post(`${api.url}api/v1/auth/edit/user/${auth.user.user._id}`, {
         name: name,
         email: email,
         password: password,
         phone: phone,
         address: address
       })
-      if (response.status === 200 || response.status === 'success') {
+      if (response.status === 200) {
 
 
 
@@ -86,26 +88,58 @@ const EditInfo = () => {
   }
 
   return (
-    <SafeAreaView>
-      <Div bg={theme === 'light' ? colors.lightTheme.background : colors.darkTheme.background} h="100%">
-        <CloseBtn />
 
-        <Div px={20} py={30} h={'70%'}  >
-          <Text textAlign='center' fontWeight='bold' mb={30} color={theme === 'light' ? colors.lightTheme.black : colors.darkTheme.primary}>{t('update-your-information')}</Text>
-          <CustomInput placeholder={t('name')} value={name} onChange={(text) => setName(text)} />
-          <CustomInput placeholder={t('email')} value={email} onChange={(text) => setEmail(text)} />
-          <CustomInput placeholder={t('phone')} value={phone} onChange={(text) => setPhone(text)} />
-          <CustomInput placeholder={t('address')} value={address} onChange={(text) => setAddress(text)} />
+    <Div bg={theme === 'light' ? colors.lightTheme.background : colors.darkTheme.background} h="100%">
+
+      <Creative_Header title={t('edit-info')} />
+
+      <Div px={20} py={30} h={'70%'} pt={50}  >
 
 
-        </Div>
-        <Div px={10} w={'100%'}>
 
-          {loading ? <CustomActivityIndicator /> : <CustomButton w={'100%'} title={t('update')} onPress={update_user_info} />}
-        </Div>
+
+      
+
+        <Custom_Input
+          icon={<AntDesign name="user" size={20} color="black" />}
+          placeholder={t('name')}
+          value={name}
+          onChange={(text) => setName(text)}
+        />
+
+        <Custom_Input
+          icon={<Fontisto name="email" size={20} color="black" />}
+          placeholder={t('email')}
+          value={email}
+          onChange={(text) => setEmail(text)}
+        />
+
+        <Custom_Input
+          icon={<AntDesign name="phone" size={20} color="black" />}
+          placeholder={t('phone')}
+          value={phone}
+          onChange={(text) => setPhone(text)}
+        />
+
+        <Custom_Input
+          icon={<FontAwesome5 name="address-card" size={20} color="black" />}
+          placeholder={t('address')}
+          value={phone}
+          onChange={(text) => setAddress(text)}
+        />
+
 
       </Div>
-    </SafeAreaView>
+      <Div px={10} w={'100%'}>
+
+        {loading ? <LoaderSpinner /> : 
+        
+        
+        <Custom_Button w={'100%'} title={t('update')} onPress={update_user_info} />}
+      </Div>
+
+    </Div>
+
   )
 }
 

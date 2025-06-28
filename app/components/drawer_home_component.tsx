@@ -18,7 +18,7 @@ import AccountComponent from './drawer_modals/account_modal';
 import FavouriteComponent from './drawer_modals/favourite_modal';
 import History_Modal from './drawer_modals/history_modal';
 import MyQueueComponent from './drawer_modals/queues_modal';
-import SettingComponent from './drawer_modals/SettingComponent';
+import SettingComponent from './drawer_modals/setting_modal';
 import Notification_Modal from './drawer_modals/notifications_modal';
 import { AuthContext } from '../context/AuthContext';
 import { Dimensions, Platform } from 'react-native';
@@ -54,7 +54,7 @@ export default function Drawer_Home_Component() {
         const newLang = i18n.language === 'en' ? 'ar' : 'en';
         i18n.changeLanguage(newLang)
             .then(() => {
-                I18nManager.forceRTL(newLang === 'ar');
+                // I18nManager.forceRTL(newLang === 'ar');
 
             })
             .catch(err => console.error('Failed to change language', err));
@@ -183,6 +183,7 @@ export default function Drawer_Home_Component() {
                                 onPress={() => {
 
                                     if (auth !== null) {
+                                        drawerRef.current?.close();
                                         navigation.navigate('Help');
                                     } else {
                                         drawerRef.current?.close();

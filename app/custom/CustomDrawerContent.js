@@ -15,7 +15,7 @@ import AccountComponent from '../components/drawer_modals/account_modal';
 import FavouriteComponent from '../components/drawer_modals/favourite_modal';
 import HistoryComponent from '../components/drawer_modals/HistoryComponent';
 import MyQueueComponent from '../components/drawer_modals/queues_modal';
-import SettingComponent from '../components/drawer_modals/SettingComponent';
+import SettingComponent from '../components/drawer_modals/setting_modal';
 import NotificationComponent from '../components/drawer_modals/notifications_modal';
 
 export default function CustomDrawerContent(props) {

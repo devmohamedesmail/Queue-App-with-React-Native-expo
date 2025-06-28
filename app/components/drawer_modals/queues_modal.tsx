@@ -2,7 +2,7 @@ import { Modal, Div,Text} from 'react-native-magnus'
 import { useTheme } from '../../context/ThemeContext'
 import { useTranslation } from 'react-i18next'
 import colors from '../../config/colors'
-import ModalCloseBtn from '../ModalCloseBtn'
+import ModalCloseBtn from '../model_close_btn'
 import User_Queues from '../user_queues'
 
 const MyQueueComponent = ({ queueModalVisible, setQueueModalVisible }) => {

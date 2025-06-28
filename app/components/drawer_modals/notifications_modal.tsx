@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Text, Div, Modal, Icon } from 'react-native-magnus';
 import colors from '../../config/colors';
-import ModalCloseBtn from '../ModalCloseBtn';
+import ModalCloseBtn from '../model_close_btn';
 import { useTheme } from '../../context/ThemeContext';
 import { useTranslation } from 'react-i18next';
 import { ScrollView, TouchableOpacity } from 'react-native';

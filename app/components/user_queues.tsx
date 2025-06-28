@@ -3,12 +3,12 @@ import { useTranslation } from 'react-i18next'
 import { AuthContext } from '../context/AuthContext';
 import axios from 'axios';
 import { api } from '../config/api';
-import { Div, Text, Skeleton, Image } from 'react-native-magnus';
-import QueueItem from '../screens/myqueue/parts/QueueItem';
+import { Div,  Skeleton } from 'react-native-magnus';
 import Carousel from 'react-native-reanimated-carousel';
 import { Dimensions } from 'react-native';
 import CustomText from '../custom/CustomText';
 import Queue_User_Item from '../items/queue_user_item';
+import No_Queues from './no_queues';
 
 
 
@@ -33,6 +33,7 @@ export default function User_Queues() {
                 setQueues([])
             }
         } catch (error) {
+            
             console.log("Error Fetching user queues" + error)
 
         }
@@ -62,10 +63,6 @@ export default function User_Queues() {
                                 data={queues}
                                 scrollAnimationDuration={500}
                                 renderItem={({ item }) => (
-                                    // <QueueItem
-                                    //     queue={item}
-                                    //     fetch_today_queues_for_user={fetch_today_queues_for_user}
-                                    // />
                                     <Queue_User_Item queue={item} fetch_today_queues_for_user={fetch_today_queues_for_user} />
                                 )}
                             />
@@ -74,18 +71,9 @@ export default function User_Queues() {
 
 
                     ) : (
-                        <Div>
-                            <Image
-                                h={350}
-                                w='80%'
-                                m={10}
-                                alignSelf='center'
-                                rounded="md"
-                                source={require('../../assets/queue.png')}
-                            />
-
-                            <CustomText textAlign='center' fontWeight='bold' mt={30} fontSize={20} content={t('no-queues')} />
-                        </Div>)}
+                        
+                        <No_Queues />
+                    )}
                 </>
             ) : (
                 <Div flexDir="row" mt="md">
